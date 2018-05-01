@@ -8,6 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.geo = window.navigator.geolocation
+    this.coord
   }
 
   componentWillMount() {
@@ -18,15 +19,15 @@ class App extends Component {
       const { coords } = position
       const API_CALL = `${ROOT_URL}lon=${coords.latitude}&lat=${coords.longitude}`
       const weather = axios.get(API_CALL)
-        .then(({ data }) => console.log(data))
+        .then(({ data }) => data)
       //console.log(weather.data)
 
 
 
-      //console.log('your current position is ')
-      //console.log(`Latitude : ${coords.latitude}`);
-      //console.log(`Longitude: ${coords.longitude}`);
-      //console.log(`More or less ${coords.accuracy} meters.`);
+      console.log('your current position is ')
+      console.log(`Latitude : ${coords.latitude}`);
+      console.log(`Longitude: ${coords.longitude}`);
+      console.log(`More or less ${coords.accuracy} meters.`);
     })
   }
 
